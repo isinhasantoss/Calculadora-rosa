@@ -1,0 +1,138 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffeef2;
+    background-image: radial-gradient(#ffb6c1 10%, transparent 10%), radial-gradient(#ffb6c1 10%, transparent 10%);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fundo Espalhado */
+.bg-decor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    font-size: 2rem;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+/* Calculadora Flexível */
+.calculator {
+    background-color: #ffc0cb;
+    padding: 20px;
+    border-radius: 35px;
+    border: 7px solid #ff69b4;
+    box-shadow: 0 12px 0px #db7093;
+    width: 320px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* MODO CIENTÍFICO: Expande para o lado em vez de para baixo */
+.scientific-mode {
+    width: 580px; /* Aumenta a largura */
+    flex-direction: row; /* Coloca os painéis lado a lado */
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.header-bears {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#toggle-sci {
+    background: #ff1493;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 0 #b01065;
+}
+
+#display {
+    width: 100%;
+    height: 60px;
+    background-color: #fff0f5;
+    border: 3px solid #ff69b4;
+    border-radius: 15px;
+    font-size: 1.8rem;
+    text-align: right;
+    padding: 10px;
+    color: #ff1493;
+    margin-bottom: 15px;
+}
+
+/* Container dos botões normais */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    width: 100%;
+}
+
+.scientific-mode .buttons {
+    width: 280px; /* Fixa a largura da parte comum no modo científico */
+}
+
+/* Painel Científico (agora lateral) */
+.scientific-buttons {
+    display: none;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas para ficar vertical ao lado */
+    gap: 8px;
+    margin-left: 15px;
+    padding-left: 15px;
+    border-left: 3px dashed #ff69b4;
+}
+
+.scientific-mode .scientific-buttons {
+    display: grid;
+}
+
+button {
+    height: 50px;
+    border-radius: 15px;
+    border: none;
+    background-color: white;
+    color: #ff69b4;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #ffb6c1;
+}
+
+button:active { transform: translateY(2px); box-shadow: 0 2px 0 #ffb6c1; }
+
+.btn-clear { background-color: #ff1493; color: white; box-shadow: 0 4px 0 #c71585; }
+.operator { background-color: #ff85a1; color: white; box-shadow: 0 4px 0 #e75480; }
+.btn-equal { grid-column: span 2; background-color: #ff69b4; color: white; box-shadow: 0 4px 0 #db7093; }
+
+.sci-op { 
+    background-color: #ffe4e1; 
+    width: 65px;
+    height: 50px;
+    font-size: 0.8rem;
+}
